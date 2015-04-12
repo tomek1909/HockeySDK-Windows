@@ -105,10 +105,10 @@ namespace HockeyApp.ViewModels
         protected async Task<bool> ValidateInputAsync()
         {
             var errors = new List<string>();
-            if (!this.Email.IsValidEmail())
-            {
-                errors.Add(LocalizedStrings.LocalizedResources.EmailEmptyWarning);
-            }
+            //if (!this.Email.IsValidEmail())
+            //{
+            //    errors.Add(LocalizedStrings.LocalizedResources.EmailEmptyWarning);
+            //}
 
             if (this.Subject.IsEmpty())
             {
