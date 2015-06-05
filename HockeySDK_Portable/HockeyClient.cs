@@ -655,7 +655,8 @@ namespace HockeyApp
 
             var request = WebRequest.CreateHttp(new Uri(this.ApiBaseVersion2 + "apps/" + this.AppIdentifier + ".json", UriKind.Absolute));
             request.Method = "Get";
-            request.SetHeader(HttpRequestHeader.UserAgent.ToString(), this.UserAgentString);
+            // UserAgent can't be set on Windows Phone
+            //request.SetHeader(HttpRequestHeader.UserAgent.ToString(), this.UserAgentString);
             var response = await request.GetResponseAsync();
             IEnumerable<AppVersion> appVersions = await TaskEx.Run(() => AppVersion.FromJson(response.GetResponseStream()));
             foreach (var ver in appVersions)
